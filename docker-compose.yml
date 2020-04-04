@@ -6,6 +6,8 @@ services:
       context: api
     ports:
     - 4000:4000
+    volumes:
+    - api-data:/data 
     depends_on:
       - postgres
 
@@ -28,5 +30,6 @@ services:
       - pgsql-data:/var/lib/pgsql
 
 volumes:
+  api-data: {}
   yarn-cache: {}
   pgsql-data: {}
