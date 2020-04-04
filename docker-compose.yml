@@ -4,3 +4,14 @@ services:
   api:
     build:
       context: api
+
+  web:
+    build:
+      context: web
+    ports:
+      - 3000:3000
+    volumes:
+      - yarn-cache:/app/node_modules
+
+volumes:
+  yarn-cache: {}
