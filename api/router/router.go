@@ -30,6 +30,7 @@ func Init(db *gorm.DB) (*echo.Echo, error) {
 
 	postsController := controller.NewPostsController(baseController)
 	e.GET("/posts", postsController.GetPosts)
+	e.POST("/posts", postsController.PostPosts, jwtMiddleware)
 
 	return e, nil
 }
