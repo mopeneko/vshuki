@@ -17,5 +17,6 @@ RUN go build -o vshuki
 FROM alpine:3.11
 
 COPY --from=builder /go/src/vshuki/vshuki .
+COPY .env .
 
 ENTRYPOINT [ "./vshuki" ]
