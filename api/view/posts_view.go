@@ -12,3 +12,9 @@ type GetPostsResult struct {
 func RenderGetPostsResult(ctx echo.Context, code int, result *GetPostsResult) error {
 	return ctx.JSON(code, result)
 }
+
+type PostPostsResult struct{}
+
+func RenderPostPostsResult(ctx echo.Context, code int, result *PostPostsResult) error {
+	return ctx.JSON(code, result)
+}
