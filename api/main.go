@@ -1,9 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
+import "github.com/mopeneko/vshuki/api/router"
 
 func main() {
-	fmt.Println("Hello, world!")
+	e := router.Init()
+
+	e.Logger.Fatal(e.Start(":4000"))
 }
