@@ -1,6 +1,12 @@
 FROM golang:1.14-alpine3.11 as builder
 
-WORKDIR /go/src/vshuki
+ENV PROJECT_WORKDIR /go/src/vshuki/
+
+WORKDIR ${PROJECT_WORKDIR}
+
+COPY go.mod go.sum ${PROJECT_WORKDIR}
+RUN go mod download
+
 COPY . .
 
 ENV CGO_ENABLED=0
