@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="effe0aee-e7e9-4bc1-bf8e-6211c97569b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/database/database.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/database/table/post.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/database/table/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/database/table/user_auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/database/database.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +44,11 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"github.com/mopeneko/vshuki/api/database/table"
 	"log"
 	"math"
 	"os"
@@ -11,9 +12,22 @@ import (
 )
 
 var delayCount = 1
+
 const maxCount = 8
 
 func Init() (*gorm.DB, error) {
+	db, err := connect()
+
+	if err != nil {
+		return nil, err
+	}
+
+	migrate(db)
+
+	return db, nil
+}
+
+func connect() (*gorm.DB, error) {
 	db, err := gorm.Open(
 		"postgres",
 		fmt.Sprintf(
@@ -24,8 +38,8 @@ func Init() (*gorm.DB, error) {
 			os.Getenv("POSTGRES_DB"),
 			os.Getenv("POSTGRES_PASSWORD"),
 			os.Getenv("POSTGRES_SSL_MODE"),
-			),
-		)
+		),
+	)
 
 	if err != nil {
 		if delayCount > maxCount {
@@ -39,10 +53,16 @@ func Init() (*gorm.DB, error) {
 		time.Sleep(sleepTime)
 
 		delayCount++
-		return Init()
+		return connect()
 	}
 
 	return db, nil
+}
+
+func migrate(db *gorm.DB) {
+	db.AutoMigrate(table.UserAuth{})
+	db.AutoMigrate(table.User{})
+	db.AutoMigrate(table.Post{})
 }
 
 func pow(a, b int) int {
