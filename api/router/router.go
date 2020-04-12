@@ -5,6 +5,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/mopeneko/vshuki/api/controller"
+	"github.com/mopeneko/vshuki/api/jwt"
 	"io/ioutil"
 	"math/rand"
 	"os"
@@ -24,7 +25,7 @@ func Init(db *gorm.DB) (*echo.Echo, error) {
 		return nil, err
 	}
 
-	jwtMiddleware := middleware.JWT(jwtSecret)
+	jwtMiddleware := middleware.JWTWithConfig(jwt.GenerateConfig(jwtSecret))
 
 	baseController := controller.NewBaseController(db)
 
@@ -32,10 +33,15 @@ func Init(db *gorm.DB) (*echo.Echo, error) {
 	e.GET("/posts", postsController.GetPosts)
 	e.POST("/posts", postsController.PostPosts, jwtMiddleware)
 
+	authController := controller.NewAuthController(baseController, jwtSecret)
+	e.POST("/auth/sign_in", authController.PostSignIn)
+	e.POST("/auth/sign_up", authController.PostSignUp)
+
 	return e, nil
 }
 
 var secretSource = []byte("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
 const secretSize = 128
 
 func getJWTSecret() ([]byte, error) {
