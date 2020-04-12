@@ -62,8 +62,6 @@ func connect() (*gorm.DB, error) {
 func migrate(db *gorm.DB) {
 	db.AutoMigrate(table.UserAuth{})
 	db.AutoMigrate(table.User{})
-	db.AutoMigrate(table.Channel{})
-	db.AutoMigrate(table.Video{})
 	db.AutoMigrate(table.Post{})
 }
 

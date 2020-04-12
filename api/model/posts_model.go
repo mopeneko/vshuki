@@ -13,11 +13,9 @@ func (PostsModel) GetLatestPosts(db *gorm.DB) ([]*table.Post, error) {
 
 func (PostsModel) StorePost(db *gorm.DB, videoID string, comment string, user *table.User) error {
 	post := &table.Post{
-		Video: table.Video{
-			YouTubeID: videoID,
-		},
+		VideoID: videoID,
 		Comment: comment,
-		Poster:  user,
+		Poster: user,
 	}
 
 	db.Create(post)

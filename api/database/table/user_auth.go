@@ -6,5 +6,4 @@ type UserAuth struct {
 	gorm.Model
 	Email    string
 	Password string
-	UserID   uint
 }
