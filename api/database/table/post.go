@@ -4,8 +4,7 @@ import "github.com/jinzhu/gorm"
 
 type Post struct {
 	gorm.Model
-	Video   Video
-	VideoID uint
+	VideoID string
 	Comment string
 	Poster  *User
 }

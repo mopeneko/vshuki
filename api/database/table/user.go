@@ -4,7 +4,7 @@ import "github.com/jinzhu/gorm"
 
 type User struct {
 	gorm.Model
-	UUID     string
-	Name     string
-	UserAuth UserAuth
+	UserID string
+	Name   string
+	Auth   *UserAuth
 }
