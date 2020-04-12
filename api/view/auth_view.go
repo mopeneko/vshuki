@@ -12,7 +12,7 @@ func RenderPostSignInResult(ctx echo.Context, code int, result *PostSignInResult
 }
 
 type PostSignUpResult struct {
-	Token string `json:"token"`
+	Token   string `json:"token"`
 	Message string `json:"message"`
 }
 

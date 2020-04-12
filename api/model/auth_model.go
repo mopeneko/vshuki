@@ -29,8 +29,8 @@ func (AuthModel) ComparePassword(hash string, password []byte) error {
 
 func (AuthModel) CreateUser(db *gorm.DB, email, password string) string {
 	user := &table.User{
-		UUID:     uuid.New().String(),
-		Name:     "名無しさん",
+		UUID: uuid.New().String(),
+		Name: "名無しさん",
 		UserAuth: table.UserAuth{
 			Email:    email,
 			Password: password,
@@ -45,7 +45,7 @@ func (AuthModel) CreateUser(db *gorm.DB, email, password string) string {
 func (AuthModel) FindUser(db *gorm.DB, email string) *table.User {
 	user := &table.User{
 		UserAuth: table.UserAuth{
-			Email:    email,
+			Email: email,
 		},
 	}
 
