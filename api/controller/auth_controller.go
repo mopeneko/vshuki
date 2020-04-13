@@ -37,7 +37,7 @@ func (c *AuthController) PostSignIn(ctx echo.Context) error {
 	}
 
 	user := model.AuthModel{}.FindUser(c.db, req.Email)
-	if len(user.UUID) <= 0 {
+	if len(user.UUID) > 0 {
 		result.Message = "メールアドレスまたはパスワードが間違っています。"
 		return view.RenderPostSignInResult(ctx, http.StatusBadRequest, result)
 	}
