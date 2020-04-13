@@ -8,4 +8,5 @@ type Video struct {
 	Title     string
 	Channel   Channel
 	ChannelID uint
+	ThumbURL  string
 }

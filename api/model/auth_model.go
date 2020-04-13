@@ -43,14 +43,9 @@ func (AuthModel) CreateUser(db *gorm.DB, email, password string) string {
 }
 
 func (AuthModel) FindUser(db *gorm.DB, email string) *table.User {
-	user := &table.User{
-		UserAuth: table.UserAuth{
-			Email: email,
-		},
-	}
+	user := new(table.User)
 
-	db.Where(&user.UserAuth).First(&user.UserAuth)
-	db.First(user, user.UserAuth.UserID)
+	db.Preload("UserAuth", "email = ?", email).First(user)
 
 	return user
 }
